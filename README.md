@@ -45,7 +45,9 @@ Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não
 
 Para rodar o projeto Spring Boot é necessario clonar o projeto via Git usando o comando: `git clone https://github.com/LucasMSnts/backend-challenge.git`
 
-Caso abra o probleto no Intellij IDEA, executar o Maven para poder instalar as dependencias do projeto.
+Caso abra o projeto no Intellij IDEA, executar o Maven para poder instalar as dependencias do projeto. Para executar o Maven, clicar no incone do canto da tela, que está com o mesmo nome, selecione o `senha-valida`, que abrirá umas 3 pastas, e selecione a `Lifecycle`, aparecendo alguns comandos para execução, selecione o `install`, podendo demorar as instalações das dependências.
+
+Terminando a instalação está pronto para compilar/desenvolver.
 
 ## Estrutura 
 
@@ -63,9 +65,9 @@ o arquivo é utilizado para chamar as funções onde verificar se os cararcteres
 
 ### Util
 
-Criei essa pasta para deixar mais facil para alteração no codigo.
+Criei essa pasta para deixar mais facil para futuras manutenções no codigo.
 
 Para verificar se a senha é Maiuscula, Minuscula e se tem os caracteres especiais, foi utilizado o `regex` por ser mais tranquilo e mais visivel para manutenções. Por exemplo: nesse regex `(?=.*[!@#$%^&*()-+])` que está na função `ehMaiMinEspecial()` está verificando na String se tem algum desses caracteres especiais.
 
-No caso de verificar se tem repetida e se tem espaço, que está na função ``, foi utilizado um `Map` para mapear todos os caracteres da String adicionando quantas vezes tem o caracter repetido, se tiver mais 1, retornará o valor falso. Tambem é feito uma verificação nesse processo de ver se o caracter não é um espaço, se for, retorna falso.
+No caso de verificar se tem repetida e se tem espaço, que está na função `temRepetidoEspaco()`, foi utilizado um `Map` para mapear todos os caracteres da String adicionando quantas vezes tem o caracter repetido, se tiver mais 1, retornará o valor falso. Tambem é feito uma verificação nesse processo de ver se o caracter não é um espaço, se for, retorna falso.
 
