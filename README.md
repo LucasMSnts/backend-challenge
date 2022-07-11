@@ -35,7 +35,7 @@ Output: Um boolean indicando se a senha é válida.
 Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não precisa escrever sua solução usando elas. Use a linguagem de programação que considera ter mais conhecimento.
 
 ## Pré-Requisitos
-É necessario ter esses programas instalados para compilar/desenvolver o projeto, que foi criado via Java Spring Boot.
+Para compilar/desenvolver o projeto, que foi criado via Java Spring Boot, é necessário ter esses programas instalados:
 
 - GIT
 - Java JDK (Versão 11)
@@ -43,33 +43,35 @@ Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não
 
 ## Setup e Configuração 
 
-Para rodar o projeto Spring Boot é necessario clonar o projeto via Git usando o comando: `git clone https://github.com/LucasMSnts/backend-challenge.git`
+Para rodar o projeto Spring Boot é necessario clonar o projeto através do Git usando o comando: 
+```text
+git clone https://github.com/LucasMSnts/backend-challenge.git
+```
 
-Caso abra o projeto no Intellij IDEA, executar o Maven para poder instalar as dependencias do projeto. Para executar o Maven, clicar no incone do canto da tela, que está com o mesmo nome, selecione o `senha-valida`, que abrirá umas 3 pastas, e selecione a `Lifecycle`, aparecendo alguns comandos para execução, selecione o `install`, podendo demorar as instalações das dependências.
+Caso abra o projeto no Intellij IDEA, executar o Maven para poder instalar as dependências do projeto. Para executar o Maven, clique no icone do canto da tela, que está com o mesmo nome. Selecione o `senha-valida` e depois o `Lifecycle`, aparecendo alguns comandos para execução, selecione o `install` para instalar. Essa instalação pode demorar.
 
-No caso abra o projeto no Spring Tool Suite 4, a IDE vai automaticamente baixar as dependências do projeto.
+Já se abrir o projeto no programa Spring Tool Suite 4, a IDE vai automaticamente baixar as dependências do projeto.
 
-Terminando a instalação está pronto para compilar/desenvolver.
+Terminando a instalação estará pronto para compilar/desenvolver.
 
 ## Estrutura 
 
 ### Config
-O arquivo do Config contém as configurações para liberar o CORS da aplicação 
+O arquivo do Config contém as configurações para liberar o CORS da aplicação. 
 
 ### Domain
-Nessa pasta ocorre as definições dos campos que serão utilizados para a execução das validações da Senha, tanto do campo de entrada, que seria a senha, e da saida, que seria um `Boolean` confirmando se a senha é valida ou não.
+Nessa pasta ocorre as definições dos campos que serão utilizados para as validações da Senha, tanto do campo de entrada (senha) como o de saida (que seria um `Boolean` confirmando se a senha é valida ou não).
 
 ### Resource
 O arquivo dessa pasta é sobre as rotas que serão usadas para validar a senha através do metodo GET.
 
 ### Services
-o arquivo é utilizado para chamar as funções onde verificar se os cararcteres estão de acordo com as definições.
+O arquivo é utilizado para chamar as funções que verificarão se os caracteres estão de acordo com as definições propostas.
 
 ### Util
 
-Criei essa pasta para deixar mais facil para futuras manutenções no codigo.
+Esta pasta foi criada para deixar mais fácil futuras manutenções no código.
 
-Para verificar se a senha é Maiuscula, Minuscula e se tem os caracteres especiais, foi utilizado o `regex` por ser mais tranquilo e mais visivel para manutenções. Por exemplo: nesse regex `(?=.*[!@#$%^&*()-+])` que está na função `ehMaiMinEspecial()` está verificando na String se tem algum desses caracteres especiais.
+Para verificar se a senha possui Maiúscula, Minúscula e se tem os caracteres especiais, foi utilizado o `regex` por ser mais visível para manutenções. Por exemplo: nesse regex `(?=.*[!@#$%^&*()-+])` que está na função `ehMaiMinEspecial()` está verificando na String se tem algum desses caracteres especiais.
 
-No caso de verificar se tem repetida e se tem espaço, que está na função `temRepetidoEspaco()`, foi utilizado um `Map` para mapear todos os caracteres da String adicionando quantas vezes tem o caracter repetido, se tiver mais 1, retornará o valor falso. Tambem é feito uma verificação nesse processo de ver se o caracter não é um espaço, se for, retorna falso.
-
+Já para verificação de caracteres repetidos ou se há espaço, que está na função `temRepetidoEspaco()`, foi utilizado um `Map` para mapear todos os caracteres da String adicionando quantas vezes tem o caracter repetido. Se tiver mais de 1, ou houver espaço, retornará o valor falso. 
