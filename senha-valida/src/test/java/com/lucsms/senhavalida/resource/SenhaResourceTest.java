@@ -2,7 +2,10 @@ package com.lucsms.senhavalida.resource;
 
 import com.lucsms.senhavalida.domain.Senha;
 import com.lucsms.senhavalida.services.SenhaService;
+import com.lucsms.senhavalida.util.VerificacaoCaracteres;
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,23 +16,29 @@ import static org.mockito.Mockito.*;
 
 public class SenhaResourceTest {
 
-    private SenhaService service = mock(SenhaService.class);
+    @InjectMocks
+    private SenhaResource resourceMock = new SenhaResource();
 
-    private SenhaResource senha = new SenhaResource();
+    @Mock
+    private ResponseEntity<Senha> response;
+
+    private SenhaService serviceMock = mock(SenhaService.class);
+    private VerificacaoCaracteres verificacaoMock = mock(VerificacaoCaracteres.class);
 
     @Test
     public void validarSenhaResource() {
-        Senha validar = new Senha("AbTp9!fok");
+        when(serviceMock.validaSenha(anyString())).thenReturn(true);
 
-        when(service.validaSenha(any())).thenReturn(true);
+        ResponseEntity<Senha> r = resourceMock.validateSenha("AbTp9!fok");
 
-        senha.validateSenha("AbTp9!fok");
-
-        HttpHeaders header = new HttpHeaders();
-        header.setContentType(MediaType.APPLICATION_JSON);
-        ResponseEntity<Senha> r = new ResponseEntity<>(validar, HttpStatus.OK);
-
-        assertEquals(r.getStatusCode(), senha.);
+        assertEquals(true, r.getBody().getSenhaValida());
     }
 
+    @Test
+    public void validarSenhaVaziaResource() {
+
+        ResponseEntity<Senha> r = resourceMock.senhaVazia();
+
+        assertEquals(false, r.getBody().getSenhaValida());
+    }
 }
