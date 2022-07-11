@@ -35,7 +35,7 @@ Output: Um boolean indicando se a senha é válida.
 Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não precisa escrever sua solução usando elas. Use a linguagem de programação que considera ter mais conhecimento.
 
 ## Pré-Requisitos
-É necessario ter esses programas instalados para compilar/desenvolver o projeto
+É necessario ter esses programas instalados para compilar/desenvolver o projeto, que foi criado via Java Spring Boot
 
 - GIT
 - Java JDK (Versão 11)
@@ -43,7 +43,9 @@ Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não
 
 ## Setup e Configuração 
 
-Para rodar o projeto Spring Boot é necessario executar o Maven para poder instalar as dependencias do projeto.
+Para rodar o projeto Spring Boot é necessario clonar o projeto via Git usando o comando: `git clone https://github.com/LucasMSnts/backend-challenge.git`
+
+Caso abra o probleto no Intellij IDEA, executar o Maven para poder instalar as dependencias do projeto.
 
 ## Estrutura 
 
