@@ -15,7 +15,7 @@ public class SenhaServiceTest {
     @Test
     public void validacaoSenhaOk() {
 
-        when(verificacao.temRepetidoEspaço(anyString())).thenReturn(true);
+        when(verificacao.temRepetidoEspaco(anyString())).thenReturn(true);
         when(verificacao.ehMaiMinEspecial(anyString())).thenReturn(true);
 
         Boolean v = valida.validaSenha("AbTp9!fok");
@@ -45,7 +45,7 @@ public class SenhaServiceTest {
     public void validacaoSenhaRepetidaEspacoNOk() {
 
         when(verificacao.ehMaiMinEspecial(anyString())).thenReturn(true);
-        when(verificacao.temRepetidoEspaço(anyString())).thenReturn(false);
+        when(verificacao.temRepetidoEspaco(anyString())).thenReturn(false);
 
         Boolean v = valida.validaSenha("AAAbbbCc");
 

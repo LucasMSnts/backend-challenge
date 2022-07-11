@@ -17,7 +17,7 @@ public class VerificacaoCaracteresTest {
     }
 
     @Test
-    public void verificarMaiusculaMinisculaEspecialNOk() {
+    public void verificarEspecialNOk() {
 
         Boolean valida = verificacao.ehMaiMinEspecial("AAAbbbCc");
 
@@ -25,9 +25,25 @@ public class VerificacaoCaracteresTest {
     }
 
     @Test
+    public void verificarMaiusculaNOk() {
+
+        Boolean valida = verificacao.ehMaiMinEspecial("bbb!a");
+
+        assertFalse(valida);
+    }
+
+    @Test
+    public void verificarMinisculaNOk() {
+
+        Boolean valida = verificacao.ehMaiMinEspecial("AAA!C");
+
+        assertFalse(valida);
+    }
+
+    @Test
     public void verificarRepetidoEspaçoOk() {
 
-        Boolean valida = verificacao.temRepetidoEspaço("AbTp9!fok");
+        Boolean valida = verificacao.temRepetidoEspaco("AbTp9!fok");
 
         assertTrue(valida);
     }
@@ -35,7 +51,7 @@ public class VerificacaoCaracteresTest {
     @Test
     public void verificarRepetidoNOk() {
 
-        Boolean valida = verificacao.temRepetidoEspaço("AAAbbbCc");
+        Boolean valida = verificacao.temRepetidoEspaco("AAAbbbCc");
 
         assertFalse(valida);
     }
@@ -43,7 +59,7 @@ public class VerificacaoCaracteresTest {
     @Test
     public void verificarEspaçoNOk() {
 
-        Boolean valida = verificacao.temRepetidoEspaço("AAAb bCc");
+        Boolean valida = verificacao.temRepetidoEspaco("AAAb bCc");
 
         assertFalse(valida);
     }

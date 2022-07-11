@@ -20,7 +20,7 @@ public class SenhaService {
             return false;
         }
 
-        if (!(verificacao.temRepetidoEspaço(senha))) {
+        if (!(verificacao.temRepetidoEspaco(senha))) {
             return false;
         }
 

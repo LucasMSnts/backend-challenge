@@ -15,7 +15,7 @@ public class VerificacaoCaracteres {
         return true;
     }
 
-    public boolean temRepetidoEspaço(String senha) {
+    public boolean temRepetidoEspaco(String senha) {
         // cria um mapa vazio
         Map<Character, Integer> freq = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class VerificacaoCaracteres {
 
         for (char c: senha.toCharArray())
         {
-            // diminui a frequência de `y` no mapa
+            // diminui a frequência dos caracteres no mapa
             freq.put(c, freq.get(c) - 1);
 
             // se a frequência se tornar 0, apagua do mapa
