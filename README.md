@@ -34,35 +34,36 @@ Output: Um boolean indicando se a senha é válida.
 
 Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não precisa escrever sua solução usando elas. Use a linguagem de programação que considera ter mais conhecimento.
 
-## Pontos que daremos maior atenção
+## Pré-Requisitos
+É necessario ter esses programas instalados para compilar/desenvolver o projeto
 
-- Testes de unidade / integração
-- Abstração, acoplamento, extensibilidade e coesão
-- Design de API
-- Clean Code
-- SOLID
-- Documentação da solução no *README* 
+- GIT
+- Java JDK (Versão 11)
+- Intellij IDEA ou Spring Boot
 
-## Pontos que não iremos avaliar
+## Setup e Configuração 
 
-- docker file
-- scripts ci/cd
-- coleções do postman ou ferramentas para execução
+Para rodar o projeto Spring Boot é necessario executar o Maven para poder instalar as dependencias do projeto.
 
-### Sobre a documentação
+## Estrutura 
 
-Nesta etapa do processo seletivo queremos entender as decisões por trás do código, portanto é fundamental que o *README* tenha algumas informações referentes a sua solução.
+### Config
+O arquivo do Config contém as configurações para liberar o CORS da aplicação 
 
-Algumas dicas do que esperamos ver são:
+### Domain
+Nessa pasta ocorre as definições dos campos que serão utilizados para a execução das validações da Senha, tanto do campo de entrada, que seria a senha, e da saida, que seria um `Boolean` confirmando se a senha é valida ou não.
 
-- Instruções básicas de como executar o projeto;
-- Detalhes sobre a sua solução, gostariamos de saber qual foi seu racional nas decisões;
-- Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
+### Resource
+O arquivo dessa pasta são sobre as rotas que são usadas para 
 
-## Como esperamos receber sua solução
+### Services
+o arquivo é utilizado para chamar a função onde verificar se os cararcteres estão de acordo com as definições 
 
-Esta etapa é eliminatória, e por isso esperamos que o código reflita essa importância.
+### Util
 
-Se tiver algum imprevisto, dúvida ou problema, por favor entre em contato com a gente, estamos aqui para ajudar.
+Criei essa pasta para deixar mais facil para alteração no codigo.
 
-Nos envie o link de um repo público com a sua solução.
+Para verificar se a senha é Maiuscula, Minuscula e se tem os caracteres especiais, foi utilizado o `regex` por ser mais tranquilo e mais visivel para manutenções. Por exemplo: nesse regex `(?=.*[!@#$%^&*()-+])` está verificando na String se tem algum desses caracteres especiais.
+
+No caso de verificar se tem repetida e se tem espaço, foi utilizado um `Map` para mapear todos os caracteres da String adicionando quantas vezes tem o caracter repetido, se tiver mais 1, retornará o valor falso. Tambem é feito uma verificação nesse processo de ver se o caracter não é um espaço, se for, retorna falso.
+
