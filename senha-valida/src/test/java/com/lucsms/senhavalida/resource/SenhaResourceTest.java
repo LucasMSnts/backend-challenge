@@ -33,12 +33,4 @@ public class SenhaResourceTest {
 
         assertEquals(true, r.getBody().getSenhaValida());
     }
-
-    @Test
-    public void validarSenhaVaziaResource() {
-
-        ResponseEntity<Senha> r = resourceMock.senhaVazia();
-
-        assertEquals(false, r.getBody().getSenhaValida());
-    }
 }
