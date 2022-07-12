@@ -70,6 +70,9 @@ O arquivo dessa pasta é sobre a rota que será usada para validar a senha atrav
 ### Services
 O arquivo é utilizado para chamar as funções que verificarão se os caracteres estão de acordo com as definições propostas.
 
+## Exception
+Foi criado essa exceção, que seria o `ValidacaoException`, caso ocorra algum erro na hora de executar o serviço de validação.
+
 ### Util
 
 Esta pasta foi criada para deixar mais fácil futuras manutenções no código.
