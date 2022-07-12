@@ -3,12 +3,9 @@ package com.lucsms.senhavalida.resource;
 import com.lucsms.senhavalida.domain.Senha;
 import com.lucsms.senhavalida.services.SenhaService;
 import com.lucsms.senhavalida.util.VerificacaoCaracteres;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.*;
