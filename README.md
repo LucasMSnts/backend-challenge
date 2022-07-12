@@ -34,35 +34,57 @@ Output: Um boolean indicando se a senha é válida.
 
 Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não precisa escrever sua solução usando elas. Use a linguagem de programação que considera ter mais conhecimento.
 
-## Pontos que daremos maior atenção
+## Pré-Requisitos
+O projeto foi criado em Java com a utilização do Spring Boot por eu ter mais familiaridade com a linguagem. A utilização da Arquitetura do MVC foi feita por eu considerar ser mais organizada e por estar na maioria dos meus projetos de estudo.
 
-- Testes de unidade / integração
-- Abstração, acoplamento, extensibilidade e coesão
-- Design de API
-- Clean Code
-- SOLID
-- Documentação da solução no *README* 
+Para compilar/desenvolver o projeto é necessário ter esses programas instalados:
 
-## Pontos que não iremos avaliar
+- GIT
+- Java JDK (Versão 11)
+- Intellij IDEA ou Spring Tool Suite 4
 
-- docker file
-- scripts ci/cd
-- coleções do postman ou ferramentas para execução
+## Setup e Configuração 
 
-### Sobre a documentação
+Para rodar o projeto Spring Boot é necessario clonar o projeto através do Git usando o comando: 
+```text
+git clone https://github.com/LucasMSnts/backend-challenge.git
+```
 
-Nesta etapa do processo seletivo queremos entender as decisões por trás do código, portanto é fundamental que o *README* tenha algumas informações referentes a sua solução.
+Caso abra o projeto no Intellij IDEA, executar o Maven para poder instalar as dependências do projeto. Para executar o Maven, clique no icone do canto da tela, que está com o mesmo nome. Selecione o `senha-valida` e depois o `Lifecycle`, aparecendo alguns comandos para execução, selecione o `install` para instalar. Essa instalação pode demorar.
 
-Algumas dicas do que esperamos ver são:
+Já se abrir o projeto no programa Spring Tool Suite 4, a IDE vai automaticamente baixar as dependências do projeto.
 
-- Instruções básicas de como executar o projeto;
-- Detalhes sobre a sua solução, gostariamos de saber qual foi seu racional nas decisões;
-- Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
+Terminando a instalação estará pronto para compilar/desenvolver.
 
-## Como esperamos receber sua solução
+## Estrutura 
 
-Esta etapa é eliminatória, e por isso esperamos que o código reflita essa importância.
+### Config
+O arquivo do Config contém as configurações para liberar o CORS da aplicação. 
 
-Se tiver algum imprevisto, dúvida ou problema, por favor entre em contato com a gente, estamos aqui para ajudar.
+### Domain
+Nessa pasta ocorre as definições dos campos que serão utilizados para as validações da Senha, tanto do campo de entrada (senha) como o de saida (que seria um `Boolean` confirmando se a senha é valida ou não).
 
-Nos envie o link de um repo público com a sua solução.
+### Resource
+O arquivo dessa pasta é sobre a rota que será usada para validar a senha através do método GET, enviado pelo Header.
+
+### Services
+O arquivo é utilizado para chamar as funções que verificarão se os caracteres estão de acordo com as definições propostas.
+
+#### Exception (Subpasta do Services)
+Foi criado essa exceção, que seria o `ValidacaoException`, caso ocorra algum erro na hora de executar o serviço de validação.
+
+### Util
+
+Esta pasta foi criada para deixar mais fácil futuras manutenções no código.
+
+Para verificar se a senha possui Maiúscula, Minúscula e se tem os caracteres especiais, foi utilizado o `regex` por ser mais visível para manutenções. Por exemplo: nesse regex `(?=.*[!@#$%^&*()-+])` que está na função `ehMaiMinEspecial()` está verificando na String se tem algum desses caracteres especiais.
+
+Já para verificação de caracteres repetidos ou se há espaço, que está na função `temRepetidoEspaco()`, foi utilizado um `Map` para mapear todos os caracteres da String adicionando quantas vezes tem o caracter repetido. Se tiver mais de 1, ou houver espaço, retornará o valor falso. 
+
+Na verificação de caracteres repetidos foi pensado na ideia: 
+```text
+Teste!
+``` 
+Retornaria falso porque tem dois `e` repetindo na senha. 
+
+Porém, se os caracter for o mesmo mas tiver um Maiúsculo e um Minúsculo (`TestE!`), retornaria verdadeiro já que a diferenciação de caracteres teria sido respeitada.
