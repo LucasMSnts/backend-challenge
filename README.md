@@ -77,7 +77,7 @@ Foi criado essa exceção, que seria o `ValidacaoException`, caso ocorra algum e
 
 Esta pasta foi criada para deixar mais fácil futuras manutenções no código.
 
-Para verificar se a senha possui Maiúscula, Minúscula e se tem os caracteres especiais, foi utilizado o `regex` por ser mais visível para manutenções. Por exemplo: nesse regex `(?=.*[!@#$%^&*()-+])` que está na função `ehMaiMinEspecial()` está verificando na String se tem algum desses caracteres especiais.
+Para verificar se a senha possui Maiúscula, Minúscula e se tem os caracteres especiais, foi utilizado o `regex` por ser mais visível para manutenções. Por exemplo: nesse regex `(?=.*[!@#$%^&*()+-])` que está na função `ehMaiMinEspecial()` está verificando na String se tem algum desses caracteres especiais.
 
 Já para verificação de caracteres repetidos ou se há espaço, que está na função `temRepetidoEspaco()`, foi utilizado um `Map` para mapear todos os caracteres da String adicionando quantas vezes tem o caracter repetido. Se tiver mais de 1, ou houver espaço, retornará o valor falso. 
 

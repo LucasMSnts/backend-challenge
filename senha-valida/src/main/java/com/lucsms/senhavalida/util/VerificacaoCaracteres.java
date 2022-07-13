@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class VerificacaoCaracteres {
 
-	private final Pattern caracterEspecial = Pattern.compile("^(?=.*[!@#$%^&*()-+])" +
+	private final Pattern caracterEspecial = Pattern.compile("^(?=.*[!@#$%^&*()+-])" +
             "(?=.*[a-z])(?=.*[A-Z]).+$");
 
     public boolean ehMaiMinEspecial(String caracter) {
