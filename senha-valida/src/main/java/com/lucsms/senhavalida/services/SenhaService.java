@@ -16,6 +16,10 @@ public class SenhaService {
             return false;
         }
 
+        if (!(verificacao.tamanhoSenha(senha))){
+            return false;
+        }
+
         if (!(verificacao.ehMaiMinEspecial(senha))){
             return false;
         }
