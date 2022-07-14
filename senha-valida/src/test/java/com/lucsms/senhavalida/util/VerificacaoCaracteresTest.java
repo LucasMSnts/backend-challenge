@@ -17,6 +17,14 @@ public class VerificacaoCaracteresTest {
     }
 
     @Test
+    public void verificarTamanhoNOk() {
+
+        Boolean valida = verificacao.tamanhoSenha("AbTp9!f");
+
+        assertFalse(valida);
+    }
+
+    @Test
     public void verificarEspecialNOk() {
 
         Boolean valida = verificacao.ehMaiMinEspecial("AAAbbbCc");

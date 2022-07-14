@@ -9,8 +9,16 @@ public class VerificacaoCaracteres {
 	private final Pattern caracterEspecial = Pattern.compile("^(?=.*[!@#$%^&*()+-])" +
             "(?=.*[a-z])(?=.*[A-Z]).+$");
 
+    private final Pattern tamanhoSenha = Pattern.compile(".{9,}");
+
     public boolean ehMaiMinEspecial(String caracter) {
         if (!(caracterEspecial.matcher(caracter).matches()))
+            return false;
+        return true;
+    }
+
+    public boolean tamanhoSenha(String caracter) {
+        if (!(tamanhoSenha.matcher(caracter).matches()))
             return false;
         return true;
     }
